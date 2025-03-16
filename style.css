@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: rgb(241, 228, 228);
+    margin: 0;
+    padding: 20px;
+    ;
+  }
+  
+  h1 {
+    text-align: center;
+    background-color: black;
+    color: white;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input, textarea {
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Styling for the ramen images container */
+  #ramen-images-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .ramen-image {
+    width: 80px;  /* Smaller size for the thumbnail images */
+    height: auto;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+  }
+  
+  #ramen-detail {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  #ramen-large-image {
+    width: 400px; /* Larger image displayed below the thumbnails */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+  }
+  
+  #ramen-name-detail {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  #ramen-restaurant-detail, #ramen-rating-detail, #ramen-comment-detail {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
