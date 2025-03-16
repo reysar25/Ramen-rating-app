@@ -1,11 +1,65 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramen Rating App</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-</body><script src="index.js"></script>
+  <h1>Ramen Rater</h1>
+  <div>
+    <img src="images/naruto.jpg" alt="Naruto Ramen" width="200">
+    <img src="images/kojiro.jpg" alt="Kojiro Ramen" width="200">
+    <img src="images/gyukotsu.jpg" alt="Gyukotsu Ramen" width="130">
+    <img src="images/nirvana.jpg" alt="Nirvana Ramen" width="130">
+    <img src="images/shoyu.jpg" alt="Shoyu Ramen" width="130">
+  </div>
+  
+
+  <form id="ramen-form">
+    <div class="form-group">
+      <label for="ramen-name-input">Ramen Name:</label>
+      <input type="text" id="ramen-name-input" placeholder="Ramen Name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="ramen-restaurant-input">Restaurant:</label>
+      <input type="text" id="ramen-restaurant-input" placeholder="Restaurant" required>
+    </div>
+
+    <div class="form-group">
+      <label for="ramen-rating-input">Rating (1-5):</label>
+      <input type="number" id="ramen-rating-input" placeholder="Rating" min="1" max="5" required>
+    </div>
+
+    <div class="form-group">
+      <label for="ramen-comment-input">Comment:</label>
+      <textarea id="ramen-comment-input" placeholder="Comment" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="ramen-image-input">Image URL:</label>
+      <input type="url" id="ramen-image-input" placeholder="Image URL" required>
+    </div>
+
+    <button type="submit">Add Ramen</button>
+  </form>
+
+  <!-- Section for smaller ramen images -->
+  <h2>Choose Your Ramen</h2>
+  <div id="ramen-images-container"></div>
+
+  <!-- Ramen detail display area -->
+  <div id="ramen-detail">
+    <h2 id="ramen-name-detail"></h2>
+    <img id="ramen-large-image" src="" alt="Ramen Image" />
+    <p id="ramen-restaurant-detail"></p>
+    <p id="ramen-rating-detail"></p>
+    <p id="ramen-comment-detail"></p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
 </html>
