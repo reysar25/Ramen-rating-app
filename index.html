@@ -1,65 +1,58 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ramen Rating App</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>Ramen Ratings</h1>
-  <div>
-    <img src="images/naruto.jpg" alt="Naruto Ramen" width="200">
-    <img src="images/kojiro.jpg" alt="Kojiro Ramen" width="200">
-    <img src="images/gyukotsu.jpg" alt="Gyukotsu Ramen" width="130">
-    <img src="images/nirvana.jpg" alt="Nirvana Ramen" width="130">
-    <img src="images/shoyu.jpg" alt="Shoyu Ramen" width="130">
-  </div>
-  
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Test of heaven</title>
+     <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+    <header><h1>Ramen Rater</h1></header>
 
-  <form id="ramen-form">
-    <div class="form-group">
-      <label for="ramen-name-input">Ramen Name:</label>
-      <input type="text" id="ramen-name-input" placeholder="Ramen Name" required>
-    </div>
+    <div id="images">
+<img src="images/Easy Japanese Ramen Recipe.jpegn" alt="Ramen mix" data-id="2">
+<img src="images/Easy Saucy Ramen Noodles (Vegan Recipe).jpeg" alt="Vegan Ramen" data-id="3">
+<img src="images/Chinese BBQ Pork Steamed Buns _ Marion's Kitchen.jpeg" alt="Pork dumplings" data-id="4">
+<img src="images/Rice cake.jpeg" alt="Rice cake" data-id="5">
+<img src="images/Miso Ramen with Chicken Katsu - Easy and Delicious Recipe.jpeg" alt="Chicken katsu" data-id="7">
+</div>
 
-    <div class="form-group">
-      <label for="ramen-restaurant-input">Restaurant:</label>
-      <input type="text" id="ramen-restaurant-input" placeholder="Restaurant" required>
-    </div>
+<section id="selected-ramen">
+    <figure>
+        <img id="selected-image" src="" alt="SelectedRamen">
+        <figcaption>
+            <p id="selected-restaurant"></p>
+            <p id="selected-rating"></p>
+            <p id="selected-comment"></p>
+        </figcaption>
+    </figure>
+</section>
 
-    <div class="form-group">
-      <label for="ramen-rating-input">Rating (1-5):</label>
-      <input type="number" id="ramen-rating-input" placeholder="Rating" min="1" max="5" required>
-    </div>
 
-    <div class="form-group">
-      <label for="ramen-comment-input">Comment:</label>
-      <textarea id="ramen-comment-input" placeholder="Comment" required></textarea>
-    </div>
+    <form id="ramen-form">
+        <h3>Add New Ramen</h3>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="name" required>
 
-    <div class="form-group">
-      <label for="ramen-image-input">Image URL:</label>
-      <input type="url" id="ramen-image-input" placeholder="Image URL" required>
-    </div>
+        <label for="restramenaurant">Restaurant</label>
+        <input type="text" id="restaurant" name="restaurant" placeholder="restaurant name" required>
 
-    <button type="submit">Add Ramen</button>
-  </form>
+        <label for="image">Image URL</label>
+        <input type="text" id="image" name="image" placeholder="image URL" required>
 
-  <!-- Section for smaller ramen images -->
-  <h2>Choose Your Ramen</h2>
-  <div id="ramen-images-container"></div>
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" min="1" max="10" required>
 
-  <!-- Ramen detail display area -->
-  <div id="ramen-detail">
-    <h2 id="ramen-name-detail"></h2>
-    <img id="ramen-large-image" src="" alt="Ramen Image" />
-    <p id="ramen-restaurant-detail"></p>
-    <p id="ramen-rating-detail"></p>
-    <p id="ramen-comment-detail"></p>
-  </div>
+        <label for="comment">Comment:</label>
+        <input type="text" id="comment" name="comment">
 
-  <script src="app.js"></script>
-</body>
-</html>
+        <button type="submit">Create</button>
+            <button id="delete">Delete Selected Ramen</button>
+        </form>
+    </form>
+
+
+
+     <script src="index.js"></script>
+ </body>
+ </html>

@@ -1,142 +1,84 @@
-const ramens = [
-    { id: 1, name: "Shoyu Ramen", restaurant: "Ichiran", image: "https:/images/shoyu.jpg", rating: 5, comment: "Delicious!" },
-    { id: 2, name: "Nirvana Ramen", restaurant: "Menya", image: "https://images/nirvana.jpg", rating: 4, comment: "Very flavorful!" },
-    { id: 3, name: "Naruto Ramen", restaurant: "Ramen-ya", image: "https://images/naruto.jpg",rating: 4.5,comment:"A must try!" },
-    { id: 4, name: "Kojiro ramen", restaurant:"Ippuda",  image: "https://images/kojiro.jpg", rating: 3.5, comment: "Good presentation!"},
-    { id: 5, name: "Gyukotsu ramen", restaurant:"Tsuta",  image: "https://images/gyukotsu.jpg", rating: 4, comment: "Comforting!"},
- ];
-
- function displayRamens(){
-    const ramenMenuDiv = Document.getElementById('ramen-menu')
-    ramens.forEach(ramen=>{
-        const imgElement = document.createElement('img');
-        imgElement.src =ramen.imageUrl:
-        imgElement.alt = ramen.name;
-        imgElement.classList.add('ramen-image');
-        imgElement.addEventListener('click',()=>handleClick(ramen));
-        ramenMenuDiv.appendChild(imgElement)
-    });
- }
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Page loaded");
 
 
- function handleClick(ramen){
-    document.getElementById('ramen-name').textContent = ramen.name;
-    document.getElementById('ramen-restuarant').textContent = ramen.restaurant;
-    document.getElementById('ramen-rating').textContent = ramen.rating;
-    document.getElementById('ramen-comment').textContent = ramen.comment;
- }
- 
- // Array to store ramen data
-const ramens = [];
+  const ramens = [
+      { id: 2, name: "Ramen mix", restaurant: "Koryu House", image: "images/Easy Japanese Ramen Recipe.jpeg", rating: 9, comment: "A bust of flavor, Amazing!" },
+      { id: 3, name: "Vegan ramen", restaurant: "Mikatsu Delight", image: "images/Easy Saucy Ramen Noodles (Vegan Recipe).jpeg", rating: 9, comment: "All feelings of Delight at once!" },
+      { id: 4, name: "Pork dumplings", restaurant: "Titsi Kitchen", image: "images/Chinese BBQ Pork Steamed Buns _ Marion's Kitchen.jpeg", rating: 7, comment: "Rich in flavor ,recommend it for those who like spice." },
+      { id: 5, name: "Rice cake", restaurant: "Koruvyo Corner", image: "images/Rice cake.jpeg", rating: 8, comment: "Its something unique that!" },
+      { id: 7, name: "Chiken katsu", restaurant: "Mikaryu Cravings", image: "images/Miso Ramen with Chicken Katsu - Easy and Delicious Recipe.jpeg", rating: 10, comment: "Cooked with love and tenderness!" }
+  ];
 
-// Function to handle form submission
-function addSubmitListener() {
-  const form = document.getElementById('ramen-form');
-  form.addEventListener('submit', (event) => {
-    event.preventDefault(); // Prevent form from submitting in the default way
 
-    // Get values from the form
-    const name = document.getElementById('ramen-name-input').value;
-    const restaurant = document.getElementById('ramen-restaurant-input').value;
-    const rating = document.getElementById('ramen-rating-input').value;
-    const comment = document.getElementById('ramen-comment-input').value;
-    const imageUrl = document.getElementById('ramen-image-input').value;
+  function displayRamenDetails(ramen) {
+      console.log("Displaying ramen:", ramen.name);
+      document.getElementById("selected-image").src = ramen.image;
+      document.getElementById("selected-restaurant").textContent = `Restaurant: ${ramen.restaurant}`;
+      document.getElementById("selected-rating").textContent = `Rating: ${ramen.rating}`;
+      document.getElementById("selected-comment").textContent = `Comment: ${ramen.comment}`;
+  }
 
-    // Create ramen object
-    const ramen = {
-      name,
-      restaurant,
-      rating,
-      comment,
-      imageUrl
-    };
 
-    // Add ramen to the array
-    ramens.push(ramen);
+  function displayRamens() {
+      const imagesDiv = document.getElementById("images");
+      imagesDiv.innerHTML = ""; // Clear previous images
 
-    // Clear the form inputs after submission
-    form.reset();
+      ramens.forEach((ramen) => {
+          const img = document.createElement("img");
+          img.src = ramen.image;
+          img.alt = ramen.name;
+          img.dataset.id = ramen.id;
 
-    // Display the ramen images
-    displayRamens();
-  });
-}
 
-// Function to display ramen images and details
-function displayRamens() {
-  const ramenImagesContainer = document.getElementById('ramen-images-container');
-  ramenImagesContainer.innerHTML = ''; // Clear existing images
+          img.addEventListener("click", () => {
+              console.log(`Clicked on: ${ramen.name}`);
+              displayRamenDetails(ramen);
+          });
 
-  ramens.forEach((ramen, index) => {
-    // Create a small image element for each ramen
-    const imgElement = document.createElement('img');
-    imgElement.src = ramen.imageUrl;
-    imgElement.alt = ramen.name;
-    imgElement.classList.add('ramen-image'); // Add a class for styling
-    imgElement.addEventListener('click', () => {
-      displayRamenDetail(ramen);
-    });
+          imagesDiv.appendChild(img);
+      });
+  }
 
-    // Append the image to the container
-    ramenImagesContainer.appendChild(imgElement);
-  });
-}
 
-// Function to display ramen details when clicking a ramen image
-function displayRamenDetail(ramen) {
-  document.getElementById('ramen-name-detail').textContent = ramen.name;
-  document.getElementById('ramen-restaurant-detail').textContent = `Restaurant: ${ramen.restaurant}`;
-  document.getElementById('ramen-rating-detail').textContent = `Rating: ${ramen.rating}/5`;
-  document.getElementById('ramen-comment-detail').textContent = `Comment: ${ramen.comment}`;
-  document.getElementById('ramen-large-image').src = ramen.imageUrl;
-  document.getElementById('ramen-large-image').alt = ramen.name;
-}
+  function addSubmitListener() {
+      const form = document.getElementById("ramen-form");
 
-// Initialize the app once DOM is fully loaded
-document.addEventListener('DOMContentLoaded', () => {
+      form.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const newRamen = {
+              id: ramens.length + 1,
+              name: event.target.name.value,
+              restaurant: event.target.restaurant.value,
+              image: event.target.image.value,
+              rating: event.target.rating.value,
+              comment: event.target.comment.value
+          };
+
+          console.log("New ramen added:", newRamen);
+          ramens.push(newRamen);
+          const img = document.createElement("img");
+          img.src = newRamen.image;
+          img.alt = newRamen.name;
+          img.dataset.id = newRamen.id;
+
+
+          img.addEventListener("click", () => {
+              console.log(`Clicked on: ${newRamen.name}`);
+              displayRamenDetails(newRamen);
+          });
+
+          document.getElementById("images").appendChild(img);
+          form.reset();
+      });
+  }
+
+
+  displayRamens();
   addSubmitListener();
 
-  // Preload some ramen images (in case you want to show some initial ramen items)
-  ramens.push({
-    name: 'Gyukotsu Ramen',
-    restaurant: 'Tonkotsu Express',
-    rating: 4,
-    comment: 'Delicious, an amazing broth that leaves you wanting more!',
-    imageUrl: 'images/gyukotsu.jpg'
-  });
-
-  ramens.push({
-    name: 'Kojiro Ramen',
-    restaurant: 'Ramen Kojiro',
-    rating: 5,
-    comment: 'Amazing broth, with just the kick you need!',
-    imageUrl: 'images/kojiro.jpg'
-  });
-
-  ramens.push({
-    name: 'Naruto Ramen',
-    restaurant: 'Ichiraku Ramen',
-    rating: 5,
-    comment: 'Rich in flavour , you cannot miss this!!',
-    imageUrl: 'images/naruto.jpg'
-  });
-
-  ramens.push({
-    name: 'Nirvana Ramen',
-    restaurant: 'Ramen Nirvana',
-    rating: 4,
-    comment: ' Satisfies all your cravings ,Amazing!',
-    imageUrl: 'images/nirvana.jpg'
-  });
-
-  ramens.push({
-    name: 'Shoyu Ramen',
-    restaurant: 'Shoyu Ramen House',
-    rating: 3,
-    comment: 'Leaves you light headed , you cannot have enough of this!',
-    imageUrl: 'images/shoyu.jpg'
-  });
-
-  // Display the ramen images
-  displayRamens();
+  if (ramens.length > 0) {
+      displayRamenDetails(ramens[0]);
+  }
 });

@@ -1,93 +1,126 @@
+
+h1{text-align: center;
+  background-color: rgb(0, 0, 0);
+ padding: 10px;
+  margin: 0;
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  #images {
+      display: flex;
+      background-color: rgb(223, 216, 216);
+      flex-direction:row;
+      gap: 20px;
+      overflow-x: scroll;
+      padding: 15px;
+      margin:0 ;
+      align-items:;
+      align-content: center;
+  }
+  #images img {
+      width: 150px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+  }
+  #images img:hover {
+      transform: scale(1.1);
+  }
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: rgb(241, 228, 228);
-    margin: 0;
-    padding: 20px;
-    ;
-  }
-  
-  h1 {
-    text-align: center;
-    background-color: black;
-    color: white;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-  }
-  
-  label {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  input, textarea {
-    padding: 8px;
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  button {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  /* Styling for the ramen images container */
-  #ramen-images-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .ramen-image {
-    width: 80px;  /* Smaller size for the thumbnail images */
-    height: auto;
-    cursor: pointer;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    object-fit: cover;
-  }
-  
-  #ramen-detail {
-    text-align: center;
-    margin-top: 30px;
-  }
-  
-  #ramen-large-image {
-    width: 400px; /* Larger image displayed below the thumbnails */
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    object-fit: cover;
-  }
-  
-  #ramen-name-detail {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  #ramen-restaurant-detail, #ramen-rating-detail, #ramen-comment-detail {
-    font-size: 16px;
-    margin: 5px 0;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+#ramen-menu img:hover {
+  transform: scale(1.1);
+}
+
+#ramen-detail img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
+
+#ramen-form {
+  margin: 20px auto;
+  padding: 15px;
+  max-width: 400px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#ramen-form label {
+  display: block;
+  text-align: left;
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+#ramen-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#ramen-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#ramen-form button:hover {
+  background-color: #ec5915;
+}
+#selected-ramen {
+  margin: 20px auto;
+  padding: 15px;
+  max-width: 400px;
+  background-color: white;
+  font-weight: bold;
+
+}
+
+#selected-ramen img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#selected-ramen figcaption {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: left;
+  font-size: 16px;
+  color: #131111;
+}
+#edit-section {
+  margin-top: px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  .display: inline-block;
+}
+
+#delete-ramen {
+  background-color: #070707;
+}
+
+#delete-ramen:hover {
+  background-color: #d61812;
+}
